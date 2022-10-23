@@ -18,6 +18,8 @@ public:
     void setName(std::string name);
     void setDomestic();
     void setPredator();
+    bool operator==(const Animal& rhs) const;
+    friend std::ostream& operator<<(std::ostream& os, const Animal& data);
 private:
     std::string name_;
     bool domestic_;

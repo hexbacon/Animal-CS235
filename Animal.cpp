@@ -50,3 +50,23 @@ void Animal::setPredator()
 {
     predator_ = true;
 }
+
+bool Animal::operator==(const Animal &rhs) const
+{
+    return (this->getName() == rhs.getName()) && (this->isPredator() == rhs.isPredator()) && (this->isDomestic() == rhs.isDomestic());
+}
+
+std::ostream &operator<<(std::ostream &os, const Animal &data)
+{
+    os << data.getName() << ' ';
+    if (data.isDomestic())
+        os << "is domestic, ";
+    else
+        os << "is not domestic, ";
+    if(data.isPredator())
+        os << "is a predactor";
+    else
+        os << "is not a predator";
+    return os;
+}
+
